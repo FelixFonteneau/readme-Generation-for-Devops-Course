@@ -52,11 +52,11 @@ However, the script works also with other tittle of section and format of data, 
 ```(markdown)
 # Great Tittle
 
-## section one 
+### section one 
 
 bla bla bla
 
-## Contributor | Author | members |...
+### Contributor | Author | members |...
 
 email@something.com Name Surname Github: https://github.com/user
 
