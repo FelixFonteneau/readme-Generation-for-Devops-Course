@@ -1,24 +1,13 @@
 name: ReadMe Generation for Contribution Category Folders
 description: 'Generate the readmes of the contributions folders depending on the content.'
 
-on:
-  push:
-    branches:
-      - "2021"
-    paths:
-      - contributions/*/**
 
-  workflow_dispatch:
-
-
-jobs:
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Generate the READMEs
-        run: |
-          wget -O readme_generation.py https://raw.githubusercontent.com/FelixFonteneau/readme-Generation-for-Devops-Course/main/readme_generation.py
-          python3 readme_generation.py
-          rm readme_generation.py # clean
+runs:
+  using: "composite"
+  steps:
+    - name: Generate the READMEs
+      shell: bash
+      run: |
+        wget -O readme_generation.py https://raw.githubusercontent.com/FelixFonteneau/readme-Generation-for-Devops-Course/main/readme_generation.py
+        python3 readme_generation.py
+        rm readme_generation.py # clean
