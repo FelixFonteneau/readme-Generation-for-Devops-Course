@@ -22,26 +22,3 @@ jobs:
           wget -O readme_generation.py https://raw.githubusercontent.com/FelixFonteneau/readme-Generation-for-Devops-Course/main/readme_generation.py
           python3 readme_generation.py
           rm readme_generation.py # clean
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3.8.2
-        with:
-          token: ${{ secrets.PAT }}
-          commit-message: Update Contribution READMEs
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          signoff: false
-          branch: generation-readme
-          delete-branch: true
-          title: '[ReadMe Generation] Update the different type contribution readmes'
-          body: |
-            [__GENERATED READMEs__]
-            Updated the readmes with the new contributions
-          labels: |
-            automated pr
-          draft: false
-
-      - name: Check outputs
-        run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
