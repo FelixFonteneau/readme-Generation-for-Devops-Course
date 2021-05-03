@@ -1,4 +1,5 @@
 name: ReadMe Generation for Contribution Category Folders
+description: 'Generate the readmes of the contributions folders depending on the content.'
 
 on:
   push:
