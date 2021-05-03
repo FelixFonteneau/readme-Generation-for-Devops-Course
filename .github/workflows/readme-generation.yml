@@ -17,7 +17,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Generate the READMEs
-        run: python3 readme_generation.py
+        run: |
+          wget -O readme_generation.py https://raw.githubusercontent.com/FelixFonteneau/readme-Generation-for-Devops-Course/main/readme_generation.py
+          python3 readme_generation.py
+          rm readme_generation.py # clean
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3.8.2
